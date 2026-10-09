@@ -1,0 +1,475 @@
+/* =========================================================
+   VARIABLES GLOBALES
+   ========================================================= */
+
+:root {
+  --bg: #000000;
+  --text: #e9e9ef;
+  --muted: #b7b7c6;
+  --line: rgba(255, 255, 255, 0.12);
+  --accent: #b64cff;
+
+  --max: 1100px;
+}
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+
+  overflow-x: clip;
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+body {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--bg);
+  color: var(--text);
+
+  font-family: "Lora", serif;
+
+  line-height: 1.55;
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* =========================================================
+   CONTAINER GLOBAL
+
+   Utilisé par les pages classiques.
+   PAS utilisé pour les sections full-width de l'accueil.
+   ========================================================= */
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+
+  margin: 0 auto;
+
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* =========================================================
+   TYPOGRAPHIE
+   ========================================================= */
+
+h1,
+h2,
+h3 {
+  margin: 0;
+
+  font-family: "Cinzel", serif;
+
+  font-weight: 400;
+}
+
+p {
+  margin: 0 0 14px;
+
+  color: rgba(233, 233, 239, 0.78);
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+
+  width: 100%;
+
+  background: rgba(10, 10, 12, 0.94);
+
+  border-bottom: 1px solid var(--line);
+
+  backdrop-filter: blur(10px);
+}
+
+/* =========================================================
+   NAVIGATION
+
+   La nav est large mais reste indépendante
+   des sections de contenu.
+   ========================================================= */
+
+.nav {
+  width: 100%;
+
+  min-height: 72px;
+
+  padding-left: clamp(28px, 5vw, 90px);
+  padding-right: clamp(28px, 5vw, 90px);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+.brand {
+  font-family: "Cinzel", serif;
+
+  font-size: 20px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.04em;
+
+  white-space: nowrap;
+}
+
+.navlinks {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  font-family: "Cinzel", serif;
+
+  text-transform: uppercase;
+}
+
+.navlinks a {
+  padding: 10px 12px;
+
+  color: rgba(233, 233, 239, 0.75);
+
+  border: 1px solid transparent;
+
+  transition:
+    color 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.navlinks a.active {
+  color: var(--text);
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.navlinks a:hover {
+  color: var(--text);
+
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* =========================================================
+   BOUTONS
+   ========================================================= */
+
+.btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  background: rgba(255, 255, 255, 0.04);
+
+  color: var(--text);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 12px;
+
+  font-weight: 500;
+
+  text-transform: uppercase;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.btn.primary {
+  background: rgba(182, 76, 255, 0.17);
+
+  border-color: rgba(182, 76, 255, 0.5);
+}
+
+.btn.primary:hover {
+  background: rgba(182, 76, 255, 0.25);
+
+  border-color: rgba(182, 76, 255, 0.7);
+}
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   COMPOSANTS GLOBAUX
+   Conservés pour Romans / À propos / Contact
+   ========================================================= */
+
+.card {
+  padding: 22px;
+
+  background: rgba(10, 10, 12, 0.72);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badges {
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+
+  margin: 10px 0;
+}
+
+.badge {
+  padding: 6px 10px;
+
+  font-size: 12px;
+
+  color: var(--text);
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 999px;
+}
+
+.row {
+  display: flex;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   LIVRE GLOBAL
+   ========================================================= */
+
+.book {
+  display: grid;
+
+  grid-template-columns: 140px 1fr;
+
+  gap: 16px;
+
+  align-items: start;
+}
+
+.meta h2 {
+  margin: 0 0 6px;
+}
+
+.meta .tagline {
+  margin: 0 0 10px;
+
+  color: rgba(233, 233, 239, 0.78);
+}
+
+.cover-lg {
+  width: 140px;
+  height: 210px;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cover-lg img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+/* =========================================================
+   SPECS
+   ========================================================= */
+
+.specs {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px 16px;
+
+  margin-top: 12px;
+
+  color: rgba(233, 233, 239, 0.78);
+}
+
+.spec {
+  padding: 10px 12px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.spec b {
+  color: var(--text);
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   UTILITAIRES
+   ========================================================= */
+
+.mt-12 {
+  margin-top: 12px;
+}
+
+.mt-14 {
+  margin-top: 14px;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.badges-tight {
+  margin: 10px 0;
+}
+
+.section-title {
+  margin: 14px 0 8px;
+}
+
+.h-sm {
+  margin: 0 0 10px;
+
+  font-size: 18px;
+}
+
+.muted {
+  margin: 0 0 14px;
+
+  color: rgba(233, 233, 239, 0.68);
+}
+
+/* =========================================================
+   ACCESSIBILITÉ
+   ========================================================= */
+
+a:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid rgba(182, 76, 255, 0.7);
+
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  width: 100%;
+  font-family: "Cinzel", serif;
+  font-size: 9px;
+  color: rgba(233, 233, 239, 0.7);
+
+  border-top: 1px solid var(--line);
+}
+
+.footer-inner {
+  padding: 14px clamp(28px, 5vw, 90px);
+}
+
+/* =========================================================
+   RESPONSIVE GLOBAL
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .nav {
+    padding: 14px 18px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .navlinks {
+    width: 100%;
+
+    flex-wrap: wrap;
+  }
+
+  .book {
+    grid-template-columns: 110px 1fr;
+  }
+
+  .cover-lg {
+    width: 110px;
+    height: 165px;
+  }
+
+  .specs {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,267 @@
+<!doctype html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Alya Kaine — À propos</title>
+
+    <!-- =====================================================
+         POLICES
+         ===================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- =====================================================
+         CSS
+         style.css = global
+         apropos.css = uniquement cette page
+         ===================================================== -->
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/apropos.css" />
+
+    <!-- =====================================================
+         LIBRAIRIES / JS GLOBAL
+         ===================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+
+    <script defer src="/js/app.js"></script>
+  </head>
+
+  <body class="apropos-body">
+    <!-- Hooks utilisés par app.js -->
+
+    <div class="page-fade" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true"></div>
+
+    <!-- =====================================================
+         HEADER
+         Géré par style.css
+         ===================================================== -->
+
+    <header>
+      <div class="nav">
+        <a class="brand" href="/index.html">Alya Kaine • Autrice</a>
+
+        <nav class="navlinks" aria-label="Navigation principale">
+          <a href="/index.html">Accueil</a>
+          <a href="/romans.html">Romans</a>
+
+          <a class="active" href="/apropos.html" aria-current="page">
+            À propos
+          </a>
+
+          <a href="/contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ===================================================
+           HERO
+           Texte gauche / grande image droite
+           =================================================== -->
+
+      <section class="about-hero">
+        <div class="about-hero-copy">
+          <h1 data-reveal>À propos</h1>
+
+          <!-- Texte provisoire : on le réécrira -->
+          <div class="about-hero-text" data-reveal>
+            <p>
+              J’écris de la romance sombre, de la dark romance et de la
+              romantasy.
+            </p>
+
+            <p>
+              En pratique, ça veut surtout dire que j’ai toujours plusieurs
+              personnages qui me parlent en même temps, deux projets ouverts,
+              quinze idées de scènes… et un café froid sur mon bureau.
+            </p>
+          </div>
+        </div>
+
+        <!--
+          IMAGE TEMPORAIRE
+          Tu pourras remplacer bg-apropos.jpg plus tard
+        -->
+
+        <div class="about-hero-visual" aria-hidden="true">
+          <img src="/assets/bg-apropos.jpg" alt="" />
+        </div>
+      </section>
+
+      <!-- ===================================================
+           SON UNIVERS
+           Titre + trois cartes
+           =================================================== -->
+
+      <section class="about-world">
+        <div class="about-section-heading">
+          <h2 data-reveal>Mon univers</h2>
+
+          <div class="about-heading-line"></div>
+
+          <span>Romance sombre · Dark romance · Romantasy</span>
+        </div>
+
+        <div class="about-world-grid">
+          <!-- CARTE 1 -->
+
+          <article class="about-world-card" data-reveal>
+            <!-- Faux visuel temporaire -->
+            <div
+              class="about-card-visual about-card-visual--red"
+              aria-hidden="true"
+            ></div>
+
+            <div class="about-card-copy">
+              <h3>Relations</h3>
+
+              <span class="about-card-line"></span>
+
+              <p>
+                Pour les relations, j’ai besoin d’y croire. Un regard, une
+                réaction ou une phrase qui sonne faux peut suffire à me faire
+                reprendre toute une scène.
+              </p>
+            </div>
+          </article>
+
+          <!-- CARTE 2 -->
+
+          <article class="about-world-card" data-reveal>
+            <!-- Faux visuel temporaire -->
+            <div
+              class="about-card-visual about-card-visual--violet"
+              aria-hidden="true"
+            ></div>
+
+            <div class="about-card-copy">
+              <h3>Psychologie</h3>
+
+              <span class="about-card-line"></span>
+
+              <p>
+                Niveau psychologie, je fais beaucoup de recherches et je passe
+                tellement de temps dans la tête de mes personnages que j’ai fini
+                par développer plusieurs personnalités. Enfin, ça, c’est pas moi
+                qui le dit, c’est Patricia. Quand j’y pense, je devrais leur
+                demander de partager l’abonnement Word.
+              </p>
+            </div>
+          </article>
+
+          <!-- CARTE 3 -->
+
+          <article class="about-world-card" data-reveal>
+            <!-- Faux visuel temporaire -->
+            <div
+              class="about-card-visual about-card-visual--fantasy"
+              aria-hidden="true"
+            ></div>
+
+            <div class="about-card-copy">
+              <h3>Entre réel et fantasy</h3>
+
+              <span class="about-card-line"></span>
+
+              <p>
+                Je peux passer d’un roman très ancré dans le réel à un monde
+                avec de la magie, des familiers et tout un royaume à gérer.
+                Apparemment, choisir un seul genre, c’était trop facile.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           SA MANIÈRE D'ÉCRIRE
+           Texte gauche / citation centre / image droite
+           =================================================== -->
+
+      <section class="about-writing">
+        <div class="about-writing-copy" data-reveal>
+          <h2>Ma manière d’écrire</h2>
+
+          <span class="about-title-line"></span>
+
+          <p>
+            Je commence rarement avec quelque chose de planifié. J’ai souvent
+            une scène, une tension entre deux personnages, un bout de dialogue
+            ou une idée qui tourne en boucle. Après, il faut trouver comment
+            tout ce petit monde est censé arriver jusque-là.
+          </p>
+        </div>
+
+        <!-- Citation provisoire -->
+
+        <blockquote class="about-quote" data-reveal>
+          <span class="about-quote-mark">“</span>
+
+          <p>En cas de doute : arrête et pense au code pénal.</p>
+
+          <cite>Alya Kaine</cite>
+        </blockquote>
+
+        <!--
+          Deuxième image temporaire.
+          On reprend la même pour le moment,
+          avec un cadrage différent en CSS.
+        -->
+
+        <div class="about-writing-visual" aria-hidden="true">
+          <img src="/assets/bg-apropos.jpg" alt="" />
+        </div>
+      </section>
+
+      <!-- ===================================================
+           BANDEAU FINAL
+           =================================================== -->
+
+      <section class="about-cta">
+        <div class="about-cta-title">
+          <h2>Envie d’en savoir plus ?</h2>
+
+          <span></span>
+        </div>
+
+        <p>Retrouver les romans ou me contacter directement.</p>
+
+        <div class="actions">
+          <a class="btn primary" href="/romans.html">
+            Découvrir les romans →
+          </a>
+
+          <a class="btn" href="/contact.html"> Me contacter → </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+      <div class="footer-inner">
+        © <span id="y"></span> Alya Kaine — Tous droits réservés.
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

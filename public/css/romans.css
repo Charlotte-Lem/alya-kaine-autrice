@@ -1,0 +1,978 @@
+/* =========================================================
+   ROMANS — ALYA KAINE
+
+   Nouvelle version cohérente avec l'accueil.
+
+   PRINCIPES :
+   - pleine largeur
+   - aucune page enfermée dans un container de 940 px
+   - catalogue compact
+   - fiches romans structurées
+   - image / texte / infos clairement séparés
+   ========================================================= */
+
+/* =========================================================
+   VARIABLES LOCALES
+   ========================================================= */
+
+:root {
+  --romans-line: rgba(255, 255, 255, 0.1);
+
+  --romans-soft-line: rgba(255, 255, 255, 0.06);
+
+  --romans-text: rgba(233, 233, 239, 0.92);
+
+  --romans-muted: rgba(233, 233, 239, 0.64);
+
+  --romans-faint: rgba(233, 233, 239, 0.42);
+}
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.romans-body {
+  background: #030304;
+
+  color: var(--romans-text);
+}
+
+.romans-body main {
+  width: 100%;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   GRAIN
+   ========================================================= */
+
+.romans-grain {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  opacity: 0.045;
+
+  mix-blend-mode: overlay;
+
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.04) 0 1px,
+    transparent 1px 3px
+  );
+}
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.romans-intro {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  min-height: 250px;
+
+  padding: 70px clamp(40px, 6vw, 100px) 48px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  border-bottom: 1px solid var(--romans-line);
+
+  background:
+    radial-gradient(
+      700px 280px at 18% 100%,
+      rgba(182, 76, 255, 0.09),
+      transparent 70%
+    ),
+    #080809;
+}
+
+.romans-kicker {
+  margin: 0 0 8px;
+
+  color: var(--romans-faint);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 10px;
+
+  letter-spacing: 0.24em;
+
+  text-transform: uppercase;
+}
+
+.romans-intro h1 {
+  margin: 0 0 8px;
+
+  font-family: "Cinzel", serif;
+
+  font-size: clamp(42px, 5vw, 70px);
+
+  font-weight: 400;
+
+  line-height: 1;
+}
+
+.romans-lead {
+  margin: 0;
+
+  color: var(--romans-muted);
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   TITRE DE SECTION
+   ========================================================= */
+
+.romans-section-head {
+  width: 100%;
+
+  min-height: 72px;
+
+  padding: 0 clamp(28px, 4vw, 70px);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  border-bottom: 1px solid var(--romans-line);
+}
+
+.romans-section-head h2 {
+  margin: 0;
+
+  font-family: "Cinzel", serif;
+
+  font-size: 18px;
+
+  font-weight: 400;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+.romans-section-head span {
+  color: var(--romans-faint);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 9px;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   SÉLECTION
+   ========================================================= */
+
+.romans-selection {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  background: #050506;
+
+  border-bottom: 1px solid var(--romans-line);
+}
+
+.romans-selection-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* =========================================================
+   CARTE DE SÉLECTION
+   ========================================================= */
+
+.selection-book {
+  position: relative;
+
+  min-height: 270px;
+
+  padding: 24px clamp(22px, 3vw, 50px);
+
+  display: grid;
+
+  grid-template-columns:
+    145px
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 26px;
+
+  border-right: 1px solid var(--romans-line);
+
+  overflow: hidden;
+}
+
+.selection-book:last-child {
+  border-right: 0;
+}
+
+/* Léger fond lié au roman */
+
+.selection-book::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+.selection-book--dbds::before {
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(100, 80, 70, 0.12),
+    transparent 60%
+  );
+}
+
+.selection-book--offline::before {
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(182, 76, 255, 0.13),
+    transparent 60%
+  );
+}
+
+.selection-book--karma::before {
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(120, 20, 35, 0.15),
+    transparent 60%
+  );
+}
+
+.selection-book--confluence::before {
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(55, 105, 170, 0.16),
+    transparent 60%
+  );
+}
+
+.selection-book:hover::before {
+  opacity: 1;
+}
+
+/* =========================================================
+   COUVERTURES SÉLECTION
+   ========================================================= */
+
+.selection-cover {
+  width: 115px;
+
+  margin: 0;
+
+  aspect-ratio: 2 / 3;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.selection-cover img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.3s ease;
+}
+
+.selection-book:hover .selection-cover img {
+  transform: scale(1.025);
+}
+
+/* =========================================================
+   TEXTE SÉLECTION
+   ========================================================= */
+
+.selection-copy {
+  min-width: 0;
+}
+
+.selection-status {
+  display: inline-block;
+
+  margin-bottom: 18px;
+
+  padding: 4px 7px;
+
+  background: rgba(182, 76, 255, 0.15);
+
+  color: rgba(233, 233, 239, 0.75);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 13px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.selection-status--progress {
+  background: rgba(120, 40, 60, 0.18);
+}
+
+.selection-copy h3 {
+  margin: 0 0 10px;
+
+  font-family: "Cinzel", serif;
+
+  font-size: clamp(17px, 1.4vw, 22px);
+
+  font-weight: 400;
+
+  line-height: 1.25;
+}
+
+.selection-copy p {
+  margin: 0 0 34px;
+
+  color: var(--romans-faint);
+
+  font-size: 10px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.selection-link {
+  color: rgba(233, 233, 239, 0.72);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 9px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   FICHE ROMAN
+   ========================================================= */
+
+.novel {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  background: #050506;
+
+  border-bottom: 1px solid var(--romans-line);
+}
+
+/* =========================================================
+   IMAGE DE FOND TRÈS DISCRÈTE
+
+   Utilise la couverture du roman comme matière visuelle.
+   ========================================================= */
+
+.novel-bg {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: 45%;
+  height: 430px;
+
+  background-image:
+    linear-gradient(
+      to right,
+      #050506 0%,
+      rgba(5, 5, 6, 0.86) 24%,
+      rgba(5, 5, 6, 0.45) 65%,
+      rgba(5, 5, 6, 0.25) 100%
+    ),
+    var(--novel-bg);
+
+  background-size: cover;
+
+  background-position: center;
+
+  filter: blur(2px) saturate(0.8);
+
+  opacity: 0.16;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   HAUT DE FICHE
+   ========================================================= */
+
+.novel-hero {
+  position: relative;
+
+  z-index: 2;
+
+  min-height: 430px;
+  padding: 54px clamp(40px, 6vw, 100px);
+
+  display: grid;
+
+  grid-template-columns:
+    220px
+    minmax(0, 720px);
+
+  align-items: center;
+
+  gap: clamp(40px, 6vw, 90px);
+}
+
+/* =========================================================
+   COUVERTURE
+   ========================================================= */
+
+.novel-cover {
+  width: 200px;
+
+  margin: 0;
+
+  aspect-ratio: 2 / 3;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.45);
+}
+
+.novel-cover img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+/* =========================================================
+   IDENTITÉ DU ROMAN
+   ========================================================= */
+
+.novel-heading {
+  min-width: 0;
+}
+
+.novel-status {
+  display: inline-block;
+
+  margin-bottom: 18px;
+
+  padding: 4px 8px;
+
+  background: rgba(182, 76, 255, 0.13);
+
+  color: rgba(233, 233, 239, 0.75);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 13px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.novel-status--progress {
+  background: rgba(120, 35, 50, 0.18);
+}
+
+.novel-heading h2 {
+  margin: 0 0 16px;
+
+  font-family: "Cinzel", serif;
+
+  font-size: clamp(30px, 3.4vw, 52px);
+
+  font-weight: 400;
+
+  line-height: 1.05;
+}
+
+.novel-tagline {
+  max-width: 60ch;
+
+  margin: 0 0 18px;
+
+  color: rgba(233, 233, 239, 0.75);
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   TAGS
+   ========================================================= */
+
+.novel-tags {
+  margin: 0 0 18px;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 9px 0;
+}
+
+.novel-tags span {
+  color: rgba(233, 233, 239, 0.5);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 9px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.novel-tags span:not(:last-child)::after {
+  content: " / ";
+
+  margin: 0 10px;
+
+  color: rgba(233, 233, 239, 0.18);
+}
+
+.novel-meta {
+  margin: 0 0 22px;
+
+  color: var(--romans-faint);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 10px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   CONTENU DU ROMAN
+   gauche = lecture
+   droite = fiche pratique
+   ========================================================= */
+
+.novel-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.45fr)
+    minmax(330px, 0.75fr);
+
+  border-top: 1px solid var(--romans-line);
+
+  border-bottom: 1px solid var(--romans-line);
+}
+
+/* =========================================================
+   RÉSUMÉ / TEXTE
+   ========================================================= */
+
+.novel-reading {
+  padding: 42px clamp(40px, 6vw, 100px);
+
+  border-right: 1px solid var(--romans-line);
+}
+
+.novel-block {
+  max-width: 780px;
+}
+
+.novel-block + .novel-block {
+  margin-top: 36px;
+
+  padding-top: 32px;
+
+  border-top: 1px solid var(--romans-soft-line);
+}
+
+.novel-block h3,
+.novel-infos h3 {
+  margin: 0 0 18px;
+
+  color: rgba(233, 233, 239, 0.62);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+}
+
+.novel-block p {
+  margin: 0;
+
+  color: rgba(233, 233, 239, 0.78);
+
+  font-size: 14px;
+
+  line-height: 1.9;
+}
+
+/* =========================================================
+   INFOS
+   ========================================================= */
+
+.novel-infos {
+  padding: 42px clamp(30px, 4vw, 65px);
+}
+
+.novel-specs {
+  margin: 0;
+}
+
+.novel-specs > div {
+  padding: 14px 0;
+
+  border-top: 1px solid var(--romans-soft-line);
+}
+
+.novel-specs > div:first-child {
+  border-top: 0;
+}
+
+.novel-specs dt {
+  margin: 0 0 5px;
+
+  color: var(--romans-faint);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 9px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.novel-specs dd {
+  margin: 0;
+
+  color: rgba(233, 233, 239, 0.78);
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+/* =========================================================
+   TRIGGER WARNINGS
+   ========================================================= */
+
+.novel-tw {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  padding: 34px clamp(40px, 6vw, 100px) 42px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(240px, 0.4fr)
+    minmax(0, 1fr);
+
+  gap: 40px;
+
+  background: rgba(70, 10, 20, 0.08);
+}
+
+.novel-tw-head h3 {
+  margin: 0 0 8px;
+
+  color: rgba(220, 145, 145, 0.78);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 11px;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.novel-tw-head p {
+  margin: 0;
+
+  color: rgba(233, 233, 239, 0.48);
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+.novel-tw-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-content: flex-start;
+
+  gap: 9px 22px;
+}
+
+.novel-tw-list span {
+  color: rgba(233, 233, 239, 0.68);
+
+  font-size: 11px;
+
+  line-height: 1.6;
+}
+
+.novel-tw-list span::before {
+  content: "•";
+
+  margin-right: 7px;
+
+  color: rgba(220, 100, 115, 0.55);
+}
+
+/* =========================================================
+   VARIATIONS PAR ROMAN
+   ========================================================= */
+
+.novel--dbds {
+  --book-accent: rgba(135, 105, 95, 0.7);
+}
+
+.novel--offline {
+  --book-accent: rgba(182, 76, 255, 0.7);
+}
+
+.novel--karma {
+  --book-accent: rgba(150, 30, 45, 0.7);
+}
+
+.novel-heading::before {
+  content: "";
+
+  display: block;
+
+  width: 42px;
+  height: 1px;
+
+  margin-bottom: 20px;
+
+  background: var(--book-accent);
+}
+
+/* =========================================================
+   HOOKS JS EXISTANTS
+   ========================================================= */
+
+.page-fade {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9998;
+
+  background: #000;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.cursor {
+  position: fixed;
+
+  left: 0;
+  top: 0;
+
+  z-index: 9999;
+
+  width: 14px;
+  height: 14px;
+
+  border-radius: 999px;
+
+  background: rgba(233, 233, 239, 0.75);
+
+  mix-blend-mode: difference;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+
+  will-change: transform, width, height, opacity;
+}
+
+.cursor.is-hover {
+  width: 18px;
+  height: 18px;
+
+  background: rgba(182, 76, 255, 0.65);
+}
+
+.cursor.is-danger {
+  background: rgba(255, 58, 92, 0.65);
+}
+
+/* =========================================================
+   RESPONSIVE — TABLETTE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .romans-selection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .selection-book {
+    min-height: 250px;
+
+    border-right: 0;
+
+    border-bottom: 1px solid var(--romans-line);
+  }
+
+  .selection-book:last-child {
+    border-bottom: 0;
+  }
+
+  .novel-content {
+    grid-template-columns: 1fr;
+  }
+
+  .novel-reading {
+    border-right: 0;
+
+    border-bottom: 1px solid var(--romans-line);
+  }
+
+  .novel-tw {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .romans-intro {
+    min-height: 210px;
+
+    padding: 60px 20px 36px;
+  }
+
+  .romans-section-head {
+    padding: 0 20px;
+  }
+
+  .romans-section-head span {
+    display: none;
+  }
+
+  .selection-book {
+    grid-template-columns:
+      110px
+      minmax(0, 1fr);
+
+    padding: 20px;
+  }
+
+  .selection-cover {
+    width: 110px;
+  }
+
+  .novel-hero {
+    min-height: 0;
+
+    padding: 42px 20px;
+
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+  .novel-cover {
+    width: 180px;
+  }
+
+  .novel-bg {
+    width: 100%;
+    height: 380px;
+
+    opacity: 0.1;
+  }
+
+  .novel-reading,
+  .novel-infos {
+    padding: 32px 20px;
+  }
+
+  .novel-tw {
+    padding: 30px 20px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITÉ
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .selection-cover img {
+    transition: none;
+  }
+
+  .cursor {
+    display: none;
+  }
+}

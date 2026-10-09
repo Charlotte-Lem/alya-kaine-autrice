@@ -1,0 +1,295 @@
+<!doctype html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Alya Kaine — Autrice</title>
+
+    <!-- =====================================================
+         POLICES
+         Cinzel : identité éditoriale / titres / navigation
+         Inter  : texte courant
+         ===================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- =====================================================
+         CSS
+         ===================================================== -->
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+
+    <!-- =====================================================
+         LIBRAIRIES / JS
+         ===================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+
+    <script defer src="/js/app.js"></script>
+  </head>
+
+  <body class="page-home">
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header>
+      <div class="nav">
+        <a class="brand" href="/index.html">Alya Kaine • Autrice</a>
+
+        <nav class="navlinks" aria-label="Navigation principale">
+          <a class="active" href="/index.html" aria-current="page">Accueil</a>
+
+          <a href="/romans.html">Romans</a>
+
+          <a href="/apropos.html">À propos</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===================================================
+           HERO
+           Pleine largeur
+           =================================================== -->
+
+      <section class="home-hero">
+        <div class="home-bg" aria-hidden="true"></div>
+
+        <div class="home-fractures" aria-hidden="true">
+          <img
+            class="home-fracture home-fracture--vio"
+            src="/assets/fracturevio.png"
+            alt=""
+          />
+
+          <img
+            class="home-fracture home-fracture--red"
+            src="/assets/fracturered.png"
+            alt=""
+          />
+
+          <div class="home-jelly"></div>
+        </div>
+
+        <div class="home-hero-inner">
+          <div class="home-hero-copy">
+            <h1 class="home-title">Alya Kaine</h1>
+
+            <p class="home-sub">
+              Autrice · Romance sombre · Dark romance · Romantasy
+            </p>
+
+            <div class="actions">
+              <a class="btn primary" href="/romans.html">Romans →</a>
+              <a class="btn" href="/contact.html">Contact</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           ROMANS
+           Section FULL WIDTH :
+           aucun container, aucune marge extérieure
+           =================================================== -->
+
+      <section class="home-books">
+        <div class="home-section-head">
+          <h2>Romans</h2>
+
+          <a href="/romans.html">Tous les romans →</a>
+        </div>
+
+        <div class="home-books-grid">
+          <!-- DANS LE BRUIT DU SILENCE -->
+
+          <article class="home-book">
+            <a
+              class="home-book-cover"
+              href="/romans.html#dbds"
+              aria-label="Découvrir Dans le bruit du silence"
+            >
+              <img
+                src="/assets/dbds.jpg"
+                alt="Couverture Dans le bruit du silence"
+              />
+            </a>
+
+            <div class="home-book-info">
+              <span class="home-status">Publié</span>
+
+              <h3>Dans le bruit du silence</h3>
+
+              <p class="home-book-genre">Romance sombre</p>
+
+              <a class="home-book-link" href="/romans.html#dbds">
+                Découvrir →
+              </a>
+            </div>
+          </article>
+
+          <!-- OFFLINE -->
+
+          <article class="home-book">
+            <a
+              class="home-book-cover"
+              href="/romans.html#offline"
+              aria-label="Découvrir OFFLINE"
+            >
+              <img src="/assets/offline.png" alt="Couverture OFFLINE" />
+            </a>
+
+            <div class="home-book-info">
+              <span class="home-status">Publié</span>
+
+              <h3>OFFLINE</h3>
+
+              <p class="home-book-genre">Romance sombre</p>
+
+              <a class="home-book-link" href="/romans.html#offline">
+                Découvrir →
+              </a>
+            </div>
+          </article>
+
+          <!-- KARMA -->
+
+          <article class="home-book">
+            <a
+              class="home-book-cover"
+              href="/romans.html#karma"
+              aria-label="Découvrir KARMA"
+            >
+              <img src="/assets/karma.png" alt="Couverture KARMA" />
+            </a>
+
+            <div class="home-book-info">
+              <span class="home-status home-status--progress">En cours</span>
+
+              <h3>KARMA</h3>
+
+              <p class="home-book-genre">Dark romance</p>
+
+              <a class="home-book-link" href="/romans.html#karma">
+                En savoir plus →
+              </a>
+            </div>
+          </article>
+
+          <!-- LA CONFLUENCE D'ÉVEIL -->
+
+          <article class="home-book">
+            <div class="home-book-cover" aria-hidden="true">
+              <img
+                src="/assets/confluence.png"
+                alt="Couverture La Confluence d’Éveil"
+              />
+            </div>
+
+            <div class="home-book-info">
+              <span class="home-status home-status--fantasy">En cours</span>
+
+              <h3>La Confluence d’Éveil</h3>
+
+              <p class="home-book-genre">Romantasy</p>
+
+              <a class="home-book-link" href="/romans.html#confluence">
+                En savoir plus →
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           BAS DE PAGE
+           FULL WIDTH également
+           gauche : projets
+           droite : à propos + image
+           =================================================== -->
+
+      <section class="home-lower">
+        <!-- ===============================================
+             PROJETS EN COURS
+             =============================================== -->
+
+        <div class="home-projects">
+          <div class="home-section-head home-section-head--lower">
+            <h2>Projets en cours</h2>
+          </div>
+
+          <div class="home-project-grid">
+            <!-- KARMA -->
+
+            <article class="home-project home-project--karma">
+              <span class="home-project-label">Dark romance</span>
+
+              <h3>KARMA</h3>
+
+              <p>En écriture</p>
+            </article>
+
+            <!-- CONFLUENCE -->
+
+            <article class="home-project home-project--confluence">
+              <span class="home-project-label">Romantasy</span>
+
+              <h3>La Confluence d’Éveil</h3>
+
+              <p>En écriture</p>
+            </article>
+          </div>
+        </div>
+
+        <!-- ===============================================
+             À PROPOS
+
+             Une vraie colonne texte +
+             une vraie image séparée.
+
+             L'image touche le bord droit de l'écran.
+             =============================================== -->
+
+        <div class="home-about">
+          <div class="home-about-copy">
+            <h2>À propos</h2>
+
+            <p>
+              Alya Kaine écrit de la romance sombre, de la dark romance et de la
+              romantasy.
+            </p>
+
+            <a class="home-book-link" href="/apropos.html">
+              En savoir plus →
+            </a>
+          </div>
+
+          <div class="home-about-visual">
+            <img src="/assets/bg-apropos.jpg" alt="" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+      <div class="footer-inner">© Alya Kaine</div>
+    </footer>
+  </body>
+</html>

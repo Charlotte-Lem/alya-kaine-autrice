@@ -1,0 +1,698 @@
+<!doctype html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Alya Kaine — Romans</title>
+
+    <!-- =====================================================
+         POLICES
+         Cinzel : identité / titres
+         Lora   : texte courant
+         ===================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- =====================================================
+         CSS
+         ===================================================== -->
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/romans.css" />
+
+    <!-- =====================================================
+         LIBRAIRIES / JS GLOBAL
+         ===================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+
+    <script defer src="/js/app.js"></script>
+  </head>
+
+  <body class="romans-body">
+    <!-- Grain / hooks utilisés par app.js -->
+
+    <div class="romans-grain" aria-hidden="true"></div>
+    <div class="page-fade" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true"></div>
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header>
+      <div class="nav">
+        <a class="brand" href="/index.html">Alya Kaine • Autrice</a>
+
+        <nav class="navlinks" aria-label="Navigation principale">
+          <a href="/index.html">Accueil</a>
+
+          <a class="active" href="/romans.html" aria-current="page"> Romans </a>
+
+          <a href="/apropos.html">À propos</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ===================================================
+           INTRO CATALOGUE
+           =================================================== -->
+
+      <section class="romans-intro">
+        <p class="romans-kicker" data-reveal>Catalogue</p>
+
+        <h1 data-reveal>Romans</h1>
+
+        <p class="romans-lead" data-reveal>
+          Romans publiés et projets en cours.
+        </p>
+      </section>
+
+      <!-- ===================================================
+           SÉLECTION
+           Accès rapide aux quatre romans
+           =================================================== -->
+
+      <section class="romans-selection" aria-label="Sélection des romans">
+        <div class="romans-section-head">
+          <h2>Sélection</h2>
+
+          <span>Cliquer sur un roman pour le découvrir</span>
+        </div>
+
+        <div class="romans-selection-grid">
+          <!-- =================================================
+               DANS LE BRUIT DU SILENCE
+               ================================================= -->
+
+          <a
+            class="selection-book selection-book--dbds"
+            href="#dbds"
+            data-scrollto="#dbds"
+            aria-label="Aller à Dans le bruit du silence"
+          >
+            <figure class="selection-cover" data-parallax>
+              <img
+                src="/assets/dbds.jpg"
+                alt="Couverture Dans le bruit du silence"
+              />
+            </figure>
+
+            <div class="selection-copy">
+              <span class="selection-status">Publié</span>
+
+              <h3>Dans le bruit du silence</h3>
+
+              <p>Romance sombre</p>
+
+              <span class="selection-link">Découvrir →</span>
+            </div>
+          </a>
+
+          <!-- =================================================
+               OFFLINE
+               ================================================= -->
+
+          <a
+            class="selection-book selection-book--offline"
+            href="#offline"
+            data-scrollto="#offline"
+            aria-label="Aller à OFFLINE"
+          >
+            <figure class="selection-cover" data-parallax>
+              <img src="/assets/offline.png" alt="Couverture OFFLINE" />
+            </figure>
+
+            <div class="selection-copy">
+              <span class="selection-status">Publié</span>
+
+              <h3>OFFLINE</h3>
+
+              <p>Romance sombre</p>
+
+              <span class="selection-link">Découvrir →</span>
+            </div>
+          </a>
+
+          <!-- =================================================
+               KARMA
+               ================================================= -->
+
+          <a
+            class="selection-book selection-book--karma"
+            href="#karma"
+            data-scrollto="#karma"
+            aria-label="Aller à KARMA"
+          >
+            <figure class="selection-cover" data-parallax>
+              <img src="/assets/karma.png" alt="Couverture KARMA" />
+            </figure>
+
+            <div class="selection-copy">
+              <span class="selection-status selection-status--progress">
+                En cours
+              </span>
+
+              <h3>KARMA</h3>
+
+              <p>Dark romance</p>
+
+              <span class="selection-link">Découvrir →</span>
+            </div>
+          </a>
+
+          <!-- =================================================
+               LA CONFLUENCE D'ÉVEIL
+               ================================================= -->
+
+          <a
+            class="selection-book selection-book--confluence"
+            href="#confluence"
+            data-scrollto="#confluence"
+            aria-label="Aller à La Confluence d’Éveil"
+          >
+            <figure class="selection-cover" data-parallax>
+              <img
+                src="/assets/confluence.png"
+                alt="Couverture La Confluence d’Éveil"
+              />
+            </figure>
+
+            <div class="selection-copy">
+              <span class="selection-status selection-status--progress">
+                En cours
+              </span>
+
+              <h3>La Confluence d’Éveil</h3>
+
+              <p>Romantasy</p>
+
+              <span class="selection-link">Découvrir →</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           DANS LE BRUIT DU SILENCE
+           =================================================== -->
+
+      <section
+        class="novel novel--dbds"
+        id="dbds"
+        style="--novel-bg: url(&quot;/assets/dbds.jpg&quot;)"
+      >
+        <div class="novel-bg" aria-hidden="true"></div>
+
+        <!-- Partie haute : couverture + identité -->
+
+        <div class="novel-hero">
+          <figure class="novel-cover" data-parallax>
+            <img
+              src="/assets/dbds.jpg"
+              alt="Couverture Dans le bruit du silence"
+            />
+          </figure>
+
+          <div class="novel-heading" data-reveal>
+            <span class="novel-status">Publié</span>
+
+            <h2>Dans le bruit du silence</h2>
+
+            <p class="novel-tagline">
+              Protéger son cœur… ou accepter de perdre le contrôle.
+            </p>
+
+            <div class="novel-tags">
+              <span>Romance sombre</span>
+              <span>Résilience</span>
+              <span>Reconstruction</span>
+            </div>
+
+            <p class="novel-meta">Publié · 451 pages · Adulte</p>
+
+            <div class="actions">
+              <a
+                class="btn primary"
+                href="https://www.amazon.fr/dp/B0G7X66NGW"
+                target="_blank"
+                rel="noopener"
+              >
+                Amazon
+              </a>
+
+              <a class="btn" href="/contact.html">Me contacter</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Partie basse : résumé + informations -->
+
+        <div class="novel-content">
+          <div class="novel-reading">
+            <section class="novel-block" data-reveal>
+              <h3>Résumé</h3>
+
+              <p>
+                Clémence pensait avoir tout verrouillé : sa vie, ses émotions,
+                son passé. La rencontre avec Soren fissure ses certitudes.
+              </p>
+            </section>
+
+            <section class="novel-block" data-reveal>
+              <h3>Dévoiler la suite</h3>
+
+              <p>
+                Il n’impose rien, mais sa présence rend les silences lourds et
+                les limites floues. Quand le passé refait surface, leur relation
+                devient un enjeu, et aimer prend la forme d’un risque. Entre
+                attirance, peur et blessures, Clémence devra choisir : continuer
+                à se protéger… ou accepter de perdre le contrôle.
+              </p>
+            </section>
+          </div>
+
+          <aside class="novel-infos" data-reveal>
+            <h3>Infos</h3>
+
+            <dl class="novel-specs">
+              <div>
+                <dt>Catégories</dt>
+                <dd>Romance sombre / psychologique</dd>
+              </div>
+
+              <div>
+                <dt>Tropes</dt>
+                <dd>Strangers to Lovers • Trauma healing</dd>
+              </div>
+
+              <div>
+                <dt>Public</dt>
+                <dd>Adulte</dd>
+              </div>
+
+              <div>
+                <dt>Format</dt>
+                <dd>Ebook (3,99 €) / Broché (18,90 €)</dd>
+              </div>
+
+              <div>
+                <dt>Pagination</dt>
+                <dd>451 pages</dd>
+              </div>
+
+              <div>
+                <dt>Statut</dt>
+                <dd>Publié</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+
+        <!-- Trigger warnings -->
+
+        <section class="novel-tw" data-reveal data-danger>
+          <div class="novel-tw-head">
+            <h3>Trigger warnings</h3>
+
+            <p>Certains TW peuvent révéler des éléments de l’intrigue.</p>
+          </div>
+
+          <div class="novel-tw-list">
+            <span>Relation sous emprise</span>
+            <span>Violences psychologiques et physiques</span>
+            <span>Harcèlement post-rupture</span>
+            <span>Dépression</span>
+            <span>Effacement de soi</span>
+            <span>Agression sexuelle</span>
+          </div>
+        </section>
+      </section>
+
+      <!-- ===================================================
+           OFFLINE
+           =================================================== -->
+
+      <section
+        class="novel novel--offline"
+        id="offline"
+        style="--novel-bg: url(&quot;/assets/offline.png&quot;)"
+      >
+        <div class="novel-bg" aria-hidden="true"></div>
+
+        <div class="novel-hero">
+          <figure class="novel-cover" data-parallax>
+            <img src="/assets/offline.png" alt="Couverture OFFLINE" />
+          </figure>
+
+          <div class="novel-heading" data-reveal>
+            <span class="novel-status">Publié</span>
+
+            <h2>OFFLINE</h2>
+
+            <p class="novel-tagline">
+              Ils étaient perdus dans le réel. Ils se sont trouvés en ligne.
+            </p>
+
+            <div class="novel-tags">
+              <span>Romance sombre</span>
+              <span>Online Romance</span>
+              <span>Gaming</span>
+            </div>
+
+            <p class="novel-meta">Publié · 499 pages · Adulte</p>
+
+            <div class="actions">
+              <a
+                class="btn primary"
+                href="https://www.amazon.fr/OFFLINE-Alya-Kaine/dp/B0H4WFPSBB"
+                target="_blank"
+                rel="noopener"
+              >
+                Amazon
+              </a>
+
+              <a class="btn" href="/contact.html">Me contacter</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="novel-content">
+          <div class="novel-reading">
+            <section class="novel-block" data-reveal>
+              <h3>Résumé</h3>
+
+              <p>
+                Ils ne se connaissent pas. Ils ne se voient pas. Et pourtant,
+                ils passent des nuits ensemble.
+              </p>
+            </section>
+
+            <section class="novel-block" data-reveal>
+              <h3>Dévoiler la suite</h3>
+
+              <p>
+                Dans Luntherium, ils sont Écho et Lys. Lui, encaisse. Elle, le
+                maintient en vie. Ensemble, ils forment le duo le plus
+                synchronisé du serveur, trouvant dans ce refuge virtuel de quoi
+                faire taire leurs réalités. Mais la vraie vie, elle, ne
+                disparaît jamais vraiment. Elle attend. Patiemment. Quand les
+                écrans s’éteignent, les démons reprennent leur place. La
+                frontière entre le refuge et l'addiction est devenue si mince
+                qu'on ne sait plus qui sauve qui. Dans ce face-à-face invisible,
+                le plus grand danger n'est pas celui que l'on croit. Dans
+                l'ombre, certains secrets ne peuvent pas être mis hors ligne.
+              </p>
+            </section>
+          </div>
+
+          <aside class="novel-infos" data-reveal>
+            <h3>Infos</h3>
+
+            <dl class="novel-specs">
+              <div>
+                <dt>Catégories</dt>
+                <dd>Romance sombre / psychologique</dd>
+              </div>
+
+              <div>
+                <dt>Tropes</dt>
+
+                <dd>
+                  Slow burn • Double POV • Univers gaming • Online Romance • He
+                  falls first • Touch her and you die
+                </dd>
+              </div>
+
+              <div>
+                <dt>Public</dt>
+                <dd>Majeur et averti</dd>
+              </div>
+
+              <div>
+                <dt>Format</dt>
+                <dd>Ebook (4,99 €) / Broché (18,90 €)</dd>
+              </div>
+
+              <div>
+                <dt>Pagination</dt>
+                <dd>499 pages</dd>
+              </div>
+
+              <div>
+                <dt>Statut</dt>
+                <dd>Publié</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+
+        <section class="novel-tw" data-reveal data-danger>
+          <div class="novel-tw-head">
+            <h3>Trigger warnings</h3>
+
+            <p>Certains TW peuvent révéler des éléments de l’intrigue.</p>
+          </div>
+
+          <div class="novel-tw-list">
+            <span>Violences physiques et agression à l’arme blanche</span>
+            <span>Tentative de suicide et pensées suicidaires</span>
+            <span>Santé mentale et hospitalisation psychiatrique</span>
+            <span>Deuil et détresse psychologique profonde</span>
+
+            <span>
+              Comportements autodestructeurs et addiction (alcool/tabac)
+            </span>
+
+            <span>Manipulation psychologique et emprise</span>
+            <span>Harcèlement en ligne et cyberagressivité</span>
+          </div>
+        </section>
+      </section>
+
+      <!-- ===================================================
+           KARMA
+           =================================================== -->
+
+      <section
+        class="novel novel--karma"
+        id="karma"
+        style="--novel-bg: url(&quot;/assets/karma.png&quot;)"
+      >
+        <div class="novel-bg" aria-hidden="true"></div>
+
+        <div class="novel-hero">
+          <figure class="novel-cover" data-parallax>
+            <img src="/assets/karma.png" alt="Couverture KARMA" />
+          </figure>
+
+          <div class="novel-heading" data-reveal>
+            <span class="novel-status novel-status--progress"> En cours </span>
+
+            <h2>KARMA</h2>
+
+            <div class="novel-tags">
+              <span>Dark Romance</span>
+              <span>Mafia</span>
+              <span>Londres</span>
+            </div>
+
+            <p class="novel-meta">En cours...</p>
+
+            <div class="actions">
+              <a class="btn" href="/contact.html">Me contacter</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="novel-content">
+          <div class="novel-reading">
+            <section class="novel-block" data-reveal>
+              <h3>Résumé</h3>
+
+              <p></p>
+            </section>
+
+            <section class="novel-block" data-reveal>
+              <h3>Dévoiler la suite</h3>
+
+              <p>Résumé KARMA</p>
+            </section>
+          </div>
+
+          <aside class="novel-infos" data-reveal>
+            <h3>Infos</h3>
+
+            <dl class="novel-specs">
+              <div>
+                <dt>Catégories</dt>
+                <dd>Dark Romance</dd>
+              </div>
+
+              <div>
+                <dt>Tropes</dt>
+                <dd>Slow burn • Double POV • Touch her and you die</dd>
+              </div>
+
+              <div>
+                <dt>Public</dt>
+                <dd>Majeur et averti</dd>
+              </div>
+
+              <div>
+                <dt>Format</dt>
+                <dd></dd>
+              </div>
+
+              <div>
+                <dt>Pagination</dt>
+                <dd></dd>
+              </div>
+
+              <div>
+                <dt>Statut</dt>
+                <dd>En cours</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+
+        <!-- Pas de data-reveal ici :
+             évite les problèmes d'apparition des TW en bas de section -->
+
+        <section class="novel-tw" data-danger>
+          <div class="novel-tw-head">
+            <h3>Trigger warnings</h3>
+
+            <p>Certains TW peuvent révéler des éléments de l’intrigue.</p>
+          </div>
+
+          <div class="novel-tw-list">
+            <span>Violences physiques et agression</span>
+            <span>Torture</span>
+            <span>Meurtre</span>
+            <span>Agressions sexuelles</span>
+            <span>Séquestration</span>
+            <span>Manipulation psychologique et emprise</span>
+          </div>
+        </section>
+      </section>
+
+      <!-- ===================================================
+           LA CONFLUENCE D'ÉVEIL
+           Projet en cours — fiche volontairement plus légère
+           =================================================== -->
+
+      <section
+        class="novel novel--confluence"
+        id="confluence"
+        style="--novel-bg: url(&quot;/assets/confluence.png&quot;)"
+      >
+        <div class="novel-bg" aria-hidden="true"></div>
+
+        <div class="novel-hero">
+          <figure class="novel-cover" data-parallax>
+            <img
+              src="/assets/confluence.png"
+              alt="Couverture La Confluence d’Éveil"
+            />
+          </figure>
+
+          <div class="novel-heading" data-reveal>
+            <span class="novel-status novel-status--progress"> En cours </span>
+
+            <h2>La Confluence d’Éveil</h2>
+
+            <div class="novel-tags">
+              <span>Romantasy</span>
+            </div>
+
+            <p class="novel-meta">En cours d’écriture</p>
+
+            <div class="actions">
+              <a class="btn" href="/contact.html">Me contacter</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="novel-content">
+          <div class="novel-reading">
+            <section class="novel-block" data-reveal>
+              <h3>Résumé</h3>
+
+              <p></p>
+            </section>
+
+            <section class="novel-block" data-reveal>
+              <h3>Dévoiler la suite</h3>
+
+              <p>Projet en cours d’écriture.</p>
+            </section>
+          </div>
+
+          <aside class="novel-infos" data-reveal>
+            <h3>Infos</h3>
+
+            <dl class="novel-specs">
+              <div>
+                <dt>Catégories</dt>
+                <dd>Romantasy</dd>
+              </div>
+
+              <div>
+                <dt>Tropes</dt>
+                <dd></dd>
+              </div>
+
+              <div>
+                <dt>Public</dt>
+                <dd>Adulte</dd>
+              </div>
+
+              <div>
+                <dt>Format</dt>
+                <dd></dd>
+              </div>
+
+              <div>
+                <dt>Pagination</dt>
+                <dd></dd>
+              </div>
+
+              <div>
+                <dt>Statut</dt>
+                <dd>En cours</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+      <div class="footer-inner">
+        © <span id="y"></span> Alya Kaine — Tous droits réservés.
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

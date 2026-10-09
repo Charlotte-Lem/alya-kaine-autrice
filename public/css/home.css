@@ -1,0 +1,909 @@
+/* =========================================================
+   ACCUEIL — ALYA KAINE
+
+   STRUCTURE :
+   1. Hero pleine largeur
+   2. Romans pleine largeur
+   3. Projets + À propos pleine largeur
+
+   IMPORTANT :
+   AUCUN .container
+   AUCUN max-width
+   sur les sections principales.
+   ========================================================= */
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.page-home main {
+  width: 100%;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.home-hero {
+  position: relative;
+
+  width: 100%;
+  height: 430px;
+
+  overflow: hidden;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================================
+   FOND HERO
+   ========================================================= */
+
+.home-bg {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      1100px 550px at 70% 60%,
+      rgba(182, 76, 255, 0.15),
+      transparent 60%
+    ),
+    radial-gradient(
+      800px 480px at 15% 25%,
+      rgba(182, 76, 255, 0.09),
+      transparent 55%
+    ),
+    url("/assets/hero.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  filter: contrast(1.06) saturate(1.08);
+
+  transform: scale(1.03);
+
+  animation: homeBreath 11s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   ASSOMBRISSEMENT DU HERO
+   ========================================================= */
+
+.home-bg::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: radial-gradient(
+    1100px 750px at 50% 50%,
+    rgba(0, 0, 0, 0.12),
+    rgba(0, 0, 0, 0.84)
+  );
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   GRAIN
+   ========================================================= */
+
+.home-bg::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.035),
+    rgba(255, 255, 255, 0.035) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+
+  opacity: 0.08;
+
+  mix-blend-mode: overlay;
+
+  pointer-events: none;
+
+  animation: grainDrift 2.4s steps(2) infinite;
+}
+
+/* =========================================================
+   VOILE VIOLET
+   ========================================================= */
+
+.home-hero::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -25%;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      520px 320px at 28% 45%,
+      rgba(182, 76, 255, 0.14),
+      transparent 62%
+    ),
+    radial-gradient(
+      520px 320px at 68% 62%,
+      rgba(182, 76, 255, 0.1),
+      transparent 62%
+    );
+
+  filter: blur(18px);
+
+  mix-blend-mode: screen;
+
+  animation: homeVeil 10.5s ease-in-out infinite;
+}
+
+/* =========================================================
+   FRACTURES
+   ========================================================= */
+
+.home-fractures {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+.home-fracture {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  width: min(52vw, 820px);
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: right center;
+
+  mix-blend-mode: screen;
+
+  filter: contrast(1.05) saturate(1.05);
+
+  -webkit-mask-image: linear-gradient(
+    to left,
+    #000 0%,
+    #000 38%,
+    rgba(0, 0, 0, 0.7) 62%,
+    rgba(0, 0, 0, 0.22) 78%,
+    transparent 92%
+  );
+
+  mask-image: linear-gradient(
+    to left,
+    #000 0%,
+    #000 38%,
+    rgba(0, 0, 0, 0.7) 62%,
+    rgba(0, 0, 0, 0.22) 78%,
+    transparent 92%
+  );
+}
+
+.home-fracture--vio {
+  opacity: 0.55;
+
+  animation: fractureVioFade 14s ease-in-out infinite;
+}
+
+.home-fracture--red {
+  opacity: 0;
+
+  animation: fractureRedFade 14s ease-in-out infinite;
+}
+
+/* =========================================================
+   VOILE ROUGE
+   ========================================================= */
+
+.home-jelly {
+  position: absolute;
+
+  top: -10%;
+  right: -8%;
+
+  width: min(54vw, 860px);
+  height: 120%;
+
+  z-index: 3;
+
+  background:
+    radial-gradient(
+      520px 340px at 62% 55%,
+      rgba(255, 0, 80, 0.22),
+      transparent 62%
+    ),
+    radial-gradient(
+      420px 280px at 78% 40%,
+      rgba(255, 0, 80, 0.16),
+      transparent 60%
+    );
+
+  filter: blur(18px) saturate(1.15);
+
+  mix-blend-mode: screen;
+
+  opacity: 0;
+
+  animation: jellyPulse 14s ease-in-out infinite;
+}
+
+/* =========================================================
+   HERO — CONTENU
+   ========================================================= */
+
+.home-hero-inner {
+  position: relative;
+
+  z-index: 4;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  padding-left: clamp(40px, 6vw, 100px);
+  padding-right: clamp(40px, 6vw, 100px);
+}
+
+.home-hero-copy {
+  max-width: 760px;
+}
+
+.home-title {
+  margin: 0 0 12px;
+
+  font-family: "Cinzel", serif;
+
+  font-size: clamp(50px, 5.5vw, 86px);
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: 0.01em;
+}
+
+.home-sub {
+  margin: 0 0 22px;
+
+  color: rgba(233, 233, 239, 0.8);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 12px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   TITRES DE SECTIONS
+
+   Le bloc lui-même est full width.
+   Seul le titre possède un retrait interne.
+   ========================================================= */
+
+.home-section-head {
+  width: 100%;
+
+  min-height: 76px;
+
+  padding: 0 clamp(28px, 4vw, 70px);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.home-section-head h2 {
+  margin: 0;
+
+  font-size: 20px;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.home-section-head > a {
+  color: rgba(233, 233, 239, 0.62);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 9px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   ROMANS
+   FULL WIDTH
+   ========================================================= */
+
+.home-books {
+  width: 100%;
+
+  background: linear-gradient(180deg, rgba(8, 8, 10, 1), rgba(2, 2, 3, 1));
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================================
+   GRILLE ROMANS
+
+   Aucun padding gauche/droite.
+   Les 4 cartes occupent toute la largeur.
+   ========================================================= */
+
+.home-books-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* =========================================================
+   CARTE ROMAN
+   ========================================================= */
+
+.home-book {
+  min-width: 0;
+
+  min-height: 255px;
+
+  display: grid;
+
+  grid-template-columns: 125px minmax(0, 1fr);
+
+  gap: 18px;
+
+  padding: 18px 22px;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.home-book:last-child {
+  border-right: 0;
+}
+
+/* =========================================================
+   COUVERTURE
+   ========================================================= */
+
+.home-book-cover {
+  width: 125px;
+
+  aspect-ratio: 2 / 3;
+
+  display: block;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.home-book-cover img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.home-book-cover--placeholder {
+  padding: 14px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(80, 120, 170, 0.2),
+      transparent 55%
+    ),
+    #060a10;
+
+  font-family: "Cinzel", serif;
+
+  font-size: 13px;
+
+  line-height: 1.45;
+}
+
+/* =========================================================
+   INFOS ROMANS
+   ========================================================= */
+
+.home-book-info {
+  padding-top: 5px;
+}
+
+.home-status {
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  padding: 3px 7px;
+
+  background: rgba(182, 76, 255, 0.16);
+
+  color: rgba(233, 233, 239, 0.8);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 13px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.home-status--progress {
+  background: rgba(110, 45, 70, 0.22);
+}
+
+.home-status--fantasy {
+  background: rgba(70, 110, 160, 0.2);
+}
+
+.home-book-info h3 {
+  margin: 0 0 10px;
+
+  font-size: 16px;
+
+  line-height: 1.3;
+}
+
+.home-book-genre {
+  margin: 0 0 28px;
+
+  color: rgba(233, 233, 239, 0.55);
+
+  font-size: 9px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.home-book-link {
+  color: rgba(233, 233, 239, 0.7);
+
+  font-family: "Cinzel", serif;
+
+  font-size: 9px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   BAS DE PAGE
+   FULL WIDTH
+
+   Projets = gauche
+   À propos = droite
+   ========================================================= */
+
+.home-lower {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 58% 42%;
+
+  background: #050506;
+}
+
+/* =========================================================
+   PROJETS EN COURS
+   ========================================================= */
+
+.home-projects {
+  min-width: 0;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.home-section-head--lower {
+  min-height: 70px;
+}
+
+.home-project-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+
+  padding: 0 20px 28px;
+}
+
+/* =========================================================
+   CARTES PROJETS
+   ========================================================= */
+
+.home-project {
+  position: relative;
+
+  min-height: 122px;
+
+  padding: 20px;
+
+  overflow: hidden;
+
+  background-size: cover;
+
+  background-position: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.home-project--karma {
+  background:
+    linear-gradient(rgba(5, 5, 7, 0.54), rgba(5, 5, 7, 0.78)),
+    url("/assets/bg-karma.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+}
+
+.home-project--confluence {
+  background:
+    linear-gradient(rgba(4, 8, 14, 0.45), rgba(4, 8, 14, 0.75)),
+    url("/assets/bg-confluence.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+}
+
+.home-project-label {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: rgba(233, 233, 239, 0.55);
+
+  font-size: 8px;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.home-project h3 {
+  margin: 0 0 8px;
+
+  font-size: 16px;
+}
+
+.home-project p {
+  margin: 0;
+
+  font-size: 12px;
+
+  color: rgba(233, 233, 239, 0.8);
+}
+
+/* =========================================================
+   À PROPOS
+
+   Deux VRAIES colonnes :
+   texte gauche / image droite.
+
+   Aucun padding à droite de l'image.
+   ========================================================= */
+
+.home-about {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 68% 32%;
+  background: #050506;
+}
+
+/* Partie texte */
+
+.home-about-copy {
+  padding: 34px 36px 34px 36px;
+}
+
+.home-about-copy h2 {
+  margin: 0 0 28px;
+
+  font-size: 20px;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.home-about-copy p {
+  max-width: 40ch;
+
+  margin: 0 0 30px;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+/* Partie image */
+
+.home-about-visual {
+  min-width: 0;
+
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.home-about-visual img {
+  width: 100%;
+  height: 100%;
+
+  min-height: 240px;
+
+  display: block;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  /*
+    Pas de margin.
+    Pas de padding.
+    L'image touche directement le bord droit.
+  */
+}
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes homeBreath {
+  from {
+    transform: scale(1.03);
+  }
+
+  to {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes homeVeil {
+  0%,
+  100% {
+    transform: translate3d(-4%, -2%, 0) scale(1.08);
+
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: translate3d(4%, 2%, 0) scale(1.12);
+
+    opacity: 0.78;
+  }
+}
+
+@keyframes grainDrift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(1%, -1%, 0);
+  }
+
+  100% {
+    transform: translate3d(-1%, 1%, 0);
+  }
+}
+
+@keyframes fractureVioFade {
+  0%,
+  42% {
+    opacity: 0.55;
+  }
+
+  54%,
+  78% {
+    opacity: 0.06;
+  }
+
+  92%,
+  100% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes fractureRedFade {
+  0%,
+  44% {
+    opacity: 0;
+  }
+
+  56%,
+  76% {
+    opacity: 0.42;
+  }
+
+  90%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes jellyPulse {
+  0%,
+  42% {
+    opacity: 0;
+  }
+
+  58% {
+    opacity: 0.42;
+  }
+
+  74% {
+    opacity: 0.28;
+  }
+
+  92%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  .home-books-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-book:nth-child(2) {
+    border-right: 0;
+  }
+
+  .home-book:nth-child(n + 3) {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .home-lower {
+    grid-template-columns: 1fr;
+  }
+
+  .home-projects {
+    border-right: 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .home-about {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-hero {
+    height: 500px;
+  }
+
+  .home-hero-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .home-title {
+    font-size: clamp(40px, 12vw, 60px);
+  }
+
+  .home-sub {
+    white-space: normal;
+
+    line-height: 1.8;
+  }
+
+  .home-books-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-book {
+    border-right: 0;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .home-book:first-child {
+    border-top: 0;
+  }
+
+  .home-project-grid {
+    grid-template-columns: 1fr;
+
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .home-about {
+    grid-template-columns: 1fr;
+  }
+
+  .home-about-copy {
+    padding: 30px 20px;
+  }
+
+  .home-about-visual {
+    height: 220px;
+  }
+
+  .home-about-visual img {
+    min-height: 220px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITÉ
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .home-bg,
+  .home-bg::after,
+  .home-hero::after,
+  .home-fracture,
+  .home-jelly {
+    animation: none !important;
+  }
+}
