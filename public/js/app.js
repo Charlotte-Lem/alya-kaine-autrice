@@ -141,7 +141,7 @@
     // =========================================================
     // Parallax couvertures
     // =========================================================
-    const parallaxImgs = $$(".act [data-parallax] img");
+    const parallaxImgs = $$("[data-parallax] img");
 
     if (parallaxImgs.length && !reduceMotion) {
       parallaxImgs.forEach((img) => {
@@ -347,19 +347,28 @@
         cursor.classList.remove("is-danger");
       });
     });
-  }
-
-  // =========================================================
+  } // =========================================================
   // Transition entre pages
+  // Compatible local + GitHub Pages
   // =========================================================
   const overlay = $(".page-fade");
 
   if (overlay && hasGSAP) {
-    $$('a[href^="/"]').forEach((link) => {
+    $$("a[href]").forEach((link) => {
       const href = link.getAttribute("href") || "";
 
-      // Les liens vers une ancre doivent naviguer normalement.
-      // Exemple : /romans.html#offline
+      // Liens externes, ancres seules, mail, téléphone
+      if (
+        href.startsWith("http") ||
+        href.startsWith("mailto:") ||
+        href.startsWith("tel:") ||
+        href.startsWith("#")
+      ) {
+        return;
+      }
+
+      // Les liens comportant une ancre naviguent normalement.
+      // Ex : ./romans.html#offline
       if (href.includes("#")) return;
 
       link.addEventListener("click", (e) => {
